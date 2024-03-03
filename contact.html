@@ -1,0 +1,77 @@
+<!--Setting the Document type and languege-->
+<!DOCTYPE html>
+<html lang="en">
+<!--Setting the head of the document-->  
+<head>
+    <!-- Metadata and link to the stylesheet for the website -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Joshua Kimbel</title>
+    <link rel="stylesheet" href="css/Contact_style.css">
+</head>
+<body>
+
+    <!-- Header section containing navigation menu -->    
+    <header>
+        <nav>
+            <div class="container">
+                <!-- Page title -->
+                <h1>How You Can Contact Me</h1>
+                <!-- Navigation links -->
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Main content section -->
+    <main>
+        <!-- Message to user section -->
+        <section class="contactmessage">
+            <div class="container">
+                <h2>How to Contact Me</h2>
+                <p>Feel free to contact me through the form below. I will get back to you as soon as possible.</p>
+            </div>
+
+            <!-- Contact form section -->
+        <section class="contact">
+            <div class="container">
+                <br>
+                <h2>Contact Form</h2>
+                <!-- Form for user to input their name, email, and message and call "mail server that doesnt exsist" -->
+                <form id="contactForm" action="Mail Server" method="POST">
+                    <!-- Input fields for name setting it as required -->
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <!-- Input fields for email setting it as required -->
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <!-- Input fields for message setting it as not required -->
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message"></textarea>
+                   <!-- Submit button for the form --> 
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer with project information -->
+    <footer>
+        <div class="container">
+            <p>A Project For IT 3203: INTRODUCTION TO WEB DEVELOPMENT</p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript to prevent the form from submitting -->
+    <script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault(); 
+        alert("Thank you for submitting your information to contact Josh! Unfortunately, Josh is still working on getting the contact form working properly at this time. Your response was not sent. Please try again later. Thank you!");
+    });
+    </script>
+
+</body>
+</html>
