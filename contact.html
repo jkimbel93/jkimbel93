@@ -1,7 +1,7 @@
 <!--Setting the Document type and languege-->
 <!DOCTYPE html>
 <html lang="en">
-<!--Setting the head of the document-->  
+<!--Setting the head of the document-->      
 <head>
     <!-- Metadata and link to the stylesheet for the website -->
     <meta charset="UTF-8">
@@ -11,7 +11,7 @@
 </head>
 <body>
 
-    <!-- Header section containing navigation menu -->    
+    <!-- Header section containing navigation menu -->  
     <header>
         <nav>
             <div class="container">
@@ -34,14 +34,15 @@
                 <h2>How to Contact Me</h2>
                 <p>Feel free to contact me through the form below. I will get back to you as soon as possible.</p>
             </div>
+        </section>
 
-            <!-- Contact form section -->
+        <!-- Contact form section -->
         <section class="contact">
             <div class="container">
                 <br>
                 <h2>Contact Form</h2>
-                <!-- Form for user to input their name, email, and message and call "mail server that doesnt exsist" -->
-                <form id="contactForm" action="Mail Server" method="POST">
+                <!-- Form for user to input their name, email, and message and call-->
+                <form id="contactForm" action="/submit-form" method="POST">
                     <!-- Input fields for name setting it as required -->
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" required>
@@ -51,27 +52,55 @@
                     <!-- Input fields for message setting it as not required -->
                     <label for="message">Message:</label>
                     <textarea id="message" name="message"></textarea>
-                   <!-- Submit button for the form --> 
+                     <!-- Submit button for the form -->
                     <button type="submit">Send</button>
                 </form>
             </div>
         </section>
     </main>
-    
+
     <!-- Footer with project information -->
     <footer>
         <div class="container">
             <p>A Project For IT 3203: INTRODUCTION TO WEB DEVELOPMENT</p>
         </div>
     </footer>
-    
-    <!-- JavaScript to prevent the form from submitting -->
-    <script>
-    document.getElementById('contactForm').addEventListener('submit', function(event) {
-        event.preventDefault(); 
-        alert("Thank you for submitting your information to contact Josh! Unfortunately, Josh is still working on getting the contact form working properly at this time. Your response was not sent. Please try again later. Thank you!");
-    });
-    </script>
 
+    <!--Java Script -->
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the page from reloading in the users browser allowing for the popup to occure
+        
+            var formData = new FormData(this);
+            var formObject = {};
+            formData.forEach(function(value, key){
+                formObject[key] = value;
+            });
+            var formBody = [];
+            for (var property in formObject) {
+              var encodedKey = encodeURIComponent(property);
+              var encodedValue = encodeURIComponent(formObject[property]);
+              formBody.push(encodedKey + "=" + encodedValue);
+            }
+            formBody = formBody.join("&");
+        
+            // Use the Fetch to send the form data to the server
+            fetch('/submit-form', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+                },
+                body: formBody
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message); // Error Message if the NodeJS server can not be reached
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert("There was a problem submitting your form. Please try again later.");
+            });
+        });
+        </script>
 </body>
 </html>

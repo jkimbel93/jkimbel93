@@ -131,9 +131,81 @@ footer p {
         padding: 5px;
     }
 
-    
     main {
         padding-bottom: 50px; 
     }
 }
 
+/* Additional styles for the contact form */
+.contact {
+    background: rgba(0, 0, 0, 0.8); 
+    padding: 30px;
+    border-radius: 10px; 
+    margin: 20px 0; 
+}
+
+.contact input[type="text"],
+.contact input[type="email"],
+.contact textarea {
+    width: 100%; 
+    padding: 10px;
+    margin-bottom: 20px; 
+    border: 1px solid #ddd; 
+    border-radius: 5px; 
+    font-size: 18px; 
+    background: rgba(255,255,255,0.1); 
+    color: #fff; 
+}
+
+.contact label {
+    display: block; 
+    margin-bottom: 5px; 
+    color: #fff; 
+}
+
+.contact button[type="submit"] {
+    display: block; 
+    width: 100%;
+    background: #f4f4f4; 
+    color: #333; 
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px; 
+    cursor: crosshair; 
+    margin-top: 20px; 
+}
+
+.contact button[type="submit"]:hover {
+    background: #e2e2e2; 
+}
+
+/* Finish off the contact form styles */
+.contact input[type="text"],
+.contact input[type="email"],
+.contact textarea {
+    background: rgba(255, 255, 255, 0.3); 
+    border: 1px solid #fff; 
+    color: #fff; 
+}
+.contact input[type="text"]:focus,
+.contact input[type="email"]:focus,
+.contact textarea:focus {
+    background: rgba(255, 255, 255, 0.5); 
+    outline: none; 
+}
+
+/* Adjust the style of the button*/
+.contact button[type="submit"] {
+    background: #e81d1d; 
+    color: #fff; 
+    border: none; 
+    outline: none; 
+    transition: background-color 0.3s; 
+}
+
+.contact button[type="submit"]:hover,
+.contact button[type="submit"]:focus {
+    background: #333; 
+    color: #fff; 
+    }
